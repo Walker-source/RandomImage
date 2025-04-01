@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="em8-lZ-8rl">
+    <device id="retina6_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,44 +8,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="6Eg-0Y-uU9">
+            <objects>
+                <navigationController id="em8-lZ-8rl" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="KZu-U8-Q9p">
+                        <rect key="frame" x="0.0" y="62" width="440" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="p6n-H6-ku8"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5pr-vH-YwT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-892" y="-27"/>
+        </scene>
+        <!--Random Image-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RandomImage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZGj-Ue-Dhy">
-                                <rect key="frame" x="178" y="407.66666666666669" width="37" height="37"/>
+                                <rect key="frame" x="201.66666666666666" y="459.66666666666669" width="37" height="37"/>
                             </activityIndicatorView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="70v-r6-jOx">
-                                <rect key="frame" x="20" y="79" width="353" height="624.33333333333337"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hwr-Cv-nvB">
-                                <rect key="frame" x="82.000000000000014" y="733.33333333333337" width="229.33333333333337" height="54.666666666666629"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Update Image">
-                                    <fontDescription key="titleFontDescription" style="UICTFontTextStyleTitle0"/>
-                                </buttonConfiguration>
-                                <connections>
-                                    <action selector="updateImageDidPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="yiB-Tg-RSd"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Nu-Uh-wG8">
+                                <rect key="frame" x="20" y="178" width="400" height="724"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="70v-r6-jOx">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="724"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="2Nu-Uh-wG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="A4l-dJ-XGT"/>
                             <constraint firstItem="ZGj-Ue-Dhy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fa6-6k-cxJ"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="70v-r6-jOx" secondAttribute="trailing" constant="20" id="Oj7-7k-eBq"/>
-                            <constraint firstItem="70v-r6-jOx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZFp-pb-1Jg"/>
-                            <constraint firstItem="hwr-Cv-nvB" firstAttribute="top" secondItem="70v-r6-jOx" secondAttribute="bottom" constant="30" id="ejV-z4-ncf"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="hwr-Cv-nvB" secondAttribute="bottom" constant="30" id="f0W-RR-A7y"/>
-                            <constraint firstItem="hwr-Cv-nvB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="fbO-zD-N6g"/>
                             <constraint firstItem="ZGj-Ue-Dhy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iI2-Sw-Ebh"/>
-                            <constraint firstItem="70v-r6-jOx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="qqd-nH-Cal"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Nu-Uh-wG8" secondAttribute="bottom" constant="20" id="ihy-Zs-Sbf"/>
+                            <constraint firstItem="2Nu-Uh-wG8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jjt-xM-3QA"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Nu-Uh-wG8" secondAttribute="trailing" constant="20" id="qpk-DE-JfG"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Random Image" id="5qH-IM-AGL">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="arrow.trianglehead.clockwise" catalog="system" id="6hV-KF-1Wu">
+                            <connections>
+                                <action selector="updateImageDidPressed" destination="BYZ-38-t0r" id="Ac5-Hk-Ah4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="ZGj-Ue-Dhy" id="vXr-IM-CQH"/>
                         <outlet property="imageView" destination="70v-r6-jOx" id="usi-u3-0Zv"/>
@@ -57,6 +73,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.trianglehead.clockwise" catalog="system" width="119" height="128"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
