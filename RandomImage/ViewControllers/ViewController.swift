@@ -10,7 +10,6 @@ import UIKit
 final class ViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet private var imageView: UIImageView!
-    @IBOutlet private var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Private Properies
     private let url = URL(string: "https://picsum.photos/200/300")!
@@ -37,7 +36,6 @@ final class ViewController: UIViewController {
             DispatchQueue.main.async {[weak self] in
                 guard let self else { return }
                 imageView.image = UIImage(data: data)
-//                activityIndicator.stopAnimating()
                 contentUnavailableConfiguration = nil
             }
         }.resume()
@@ -47,7 +45,6 @@ final class ViewController: UIViewController {
         config.text = "Waiting for a response…"
         config.textProperties.font = .boldSystemFont(ofSize: 20)
         contentUnavailableConfiguration = config
-        
     }
 }
 
