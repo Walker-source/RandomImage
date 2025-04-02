@@ -19,6 +19,7 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchImage()
+        setupUnavailableConfig()
     }
     
     // MARK: - IB Actions
@@ -36,9 +37,17 @@ final class ViewController: UIViewController {
             DispatchQueue.main.async {[weak self] in
                 guard let self else { return }
                 imageView.image = UIImage(data: data)
-                activityIndicator.stopAnimating()
+//                activityIndicator.stopAnimating()
+                contentUnavailableConfiguration = nil
             }
         }.resume()
+    }
+    private func setupUnavailableConfig() {
+        var config = UIContentUnavailableConfiguration.loading()
+        config.text = "Waiting for a response…"
+        config.textProperties.font = .boldSystemFont(ofSize: 20)
+        contentUnavailableConfiguration = config
+        
     }
 }
 
