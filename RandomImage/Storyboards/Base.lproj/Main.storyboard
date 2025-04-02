@@ -32,9 +32,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="440" height="956"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="ZGj-Ue-Dhy">
-                                <rect key="frame" x="201.66666666666666" y="459.66666666666669" width="37" height="37"/>
-                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Nu-Uh-wG8">
                                 <rect key="frame" x="20" y="178" width="400" height="724"/>
                                 <subviews>
@@ -48,8 +45,6 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2Nu-Uh-wG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="A4l-dJ-XGT"/>
-                            <constraint firstItem="ZGj-Ue-Dhy" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Fa6-6k-cxJ"/>
-                            <constraint firstItem="ZGj-Ue-Dhy" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="iI2-Sw-Ebh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Nu-Uh-wG8" secondAttribute="bottom" constant="20" id="ihy-Zs-Sbf"/>
                             <constraint firstItem="2Nu-Uh-wG8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jjt-xM-3QA"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Nu-Uh-wG8" secondAttribute="trailing" constant="20" id="qpk-DE-JfG"/>
@@ -63,7 +58,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="activityIndicator" destination="ZGj-Ue-Dhy" id="vXr-IM-CQH"/>
                         <outlet property="imageView" destination="70v-r6-jOx" id="usi-u3-0Zv"/>
                     </connections>
                 </viewController>
