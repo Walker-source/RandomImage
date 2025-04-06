@@ -58,15 +58,42 @@ final class ViewController: UIViewController {
 // MARK: - Networking
 private extension ViewController {
     private func fetchImage(with url: URL) {
-        URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data else {
+        URLSession.shared.dataTask(with: url) {
+ data,
+ response,
+ error in
+            guard let data,
+                  let response = response as? HTTPURLResponse else {
+                DispatchQueue.main.async { [unowned self] in
+                    setupUnavailableConfig(
+                        UIContentUnavailableConfiguration.empty(),
+                        with: "Network error or empty data"
+                    )
+                }
                 return
             }
             
-            DispatchQueue.main.async {[weak self] in
-                guard let self else { return }
-                imageView.image = UIImage(data: data)
+            DispatchQueue.main.async {[unowned self] in
                 contentUnavailableConfiguration = nil
+                
+                switch response.statusCode {
+                case 200:
+                    guard let image = UIImage(data: data) else {
+                        setupUnavailableConfig(.empty(), with: "Decoding error")
+                        return
+                    }
+                    imageView.image = image
+                    
+                case 403:
+                    setupUnavailableConfig(.search(), with: "403: No Result")
+                case 404:
+                    setupUnavailableConfig(.empty(), with: "404: Page not found")
+                default:
+                    setupUnavailableConfig(
+                        .empty(),
+                        with: "Unknown error: \(response.statusCode)"
+                    )
+                }
             }
         }.resume()
     }
