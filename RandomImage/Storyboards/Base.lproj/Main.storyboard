@@ -33,10 +33,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="2Nu-Uh-wG8">
-                                <rect key="frame" x="20" y="178" width="400" height="724"/>
+                                <rect key="frame" x="0.0" y="178" width="440" height="744"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="70v-r6-jOx">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="724"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="440" height="744"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
@@ -44,10 +44,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="2Nu-Uh-wG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="A4l-dJ-XGT"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="2Nu-Uh-wG8" secondAttribute="bottom" constant="20" id="ihy-Zs-Sbf"/>
+                            <constraint firstItem="2Nu-Uh-wG8" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A4l-dJ-XGT"/>
                             <constraint firstItem="2Nu-Uh-wG8" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="jjt-xM-3QA"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Nu-Uh-wG8" secondAttribute="trailing" constant="20" id="qpk-DE-JfG"/>
+                            <constraint firstItem="2Nu-Uh-wG8" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="pty-Il-5fs"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="2Nu-Uh-wG8" secondAttribute="trailing" id="qpk-DE-JfG"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Random Image" id="5qH-IM-AGL">

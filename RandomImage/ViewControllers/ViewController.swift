@@ -7,6 +7,17 @@
 
 import UIKit
 
+enum Link {
+    case imageURL
+    
+    var link: URL {
+        switch self {
+        case .imageURL:
+            URL(string: "https://picsum.photos/200/300")!
+        }
+    }
+}
+
 final class ViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet private var imageView: UIImageView!
@@ -17,17 +28,39 @@ final class ViewController: UIViewController {
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        fetchImage()
-        setupUnavailableConfig()
+        fetchImage(with: Link.imageURL.link)
+        setupUnavailableConfig(
+            UIContentUnavailableConfiguration.loading(),
+            with: "Loading image"
+        )
     }
     
     // MARK: - IB Actions
     @IBAction private func updateImageDidPressed() {
-        fetchImage()
+        setupUnavailableConfig(
+            UIContentUnavailableConfiguration.loading(),
+            with: "Loading image"
+        )
+        fetchImage(with: Link.imageURL.link)
     }
     
     // MARK: - Private Methods
-    private func fetchImage() {
+    private func setupUnavailableConfig(
+        _ unavailableCOnfiguration: UIContentUnavailableConfiguration,
+        with title: String
+    ) {
+        imageView.image = nil
+        var config = unavailableCOnfiguration
+        config.text = title
+        config.textProperties.font = .boldSystemFont(ofSize: 20)
+        contentUnavailableConfiguration = config
+    }
+}
+
+
+// MARK: - Networking
+private extension ViewController {
+    private func fetchImage(with url: URL) {
         URLSession.shared.dataTask(with: url) { data, _, error in
             guard let data else {
                 return
@@ -39,12 +72,6 @@ final class ViewController: UIViewController {
                 contentUnavailableConfiguration = nil
             }
         }.resume()
-    }
-    private func setupUnavailableConfig() {
-        var config = UIContentUnavailableConfiguration.loading()
-        config.text = "Waiting for a response…"
-        config.textProperties.font = .boldSystemFont(ofSize: 20)
-        contentUnavailableConfiguration = config
     }
 }
 
