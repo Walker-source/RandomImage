@@ -22,9 +22,6 @@ final class ViewController: UIViewController {
     // MARK: - IB Outlets
     @IBOutlet private var imageView: UIImageView!
     
-    // MARK: - Private Properies
-    private let url = URL(string: "https://picsum.photos/200/300")!
-    
     // MARK: - View Life Cycles
     override func viewDidLoad() {
         super.viewDidLoad()
